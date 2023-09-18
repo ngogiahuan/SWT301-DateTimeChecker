@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>Title</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="index.css">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+
+  <div class="container">
+    <div class="app-body-container">
+    <img src="./image/logo.png" alt="logo">
+      <h2>Date Time Checker</h2>
+      <div class="form-container">
+        <div class="form-item">
+          <div class="input-container">
+            <p>Day</p>
+            <input type="text" id="dayInput">
+          </div>
+          <div class="input-container">
+            <p>Month</p>
+            <input type="text" id="monthInput">
+          </div>
+
+          <div class="input-container">
+            <p>Year</p>
+            <input type="text" id="yearInput">
+          </div>
+
+        </div>
+        <div class="submit">
+          <button onclick="clearFields()">Clear</button>
+          <button onclick="checkDateTime()">Check</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Optional JavaScript -->
+  <script src="index.js"></script>
+</body>
+
+</html>
