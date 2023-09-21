@@ -12,7 +12,6 @@ async function navigateToUrl(){
 }
 
 async function checkDateTime(day, month, year){
-    await waitForElement(By.id('dayInput'));
     await driver.findElement(By.id('dayInput')).sendKeys(day.toString());
     await driver.findElement(By.id('monthInput')).sendKeys(month.toString());
     await driver.findElement(By.id('yearInput')).sendKeys(year.toString());
@@ -33,15 +32,12 @@ async function printMessage(alertMessage, expectedMessage){
     if(alertMessage.includes(expectedMessage)){
         console.log("\x1b[32m%s\x1b[0m", alertMessage+" PASSED!");
     } else{
-        console.log("\x1b[31m%s\x1b[0m", alertMessage+" PASSED!");
+        console.log("\x1b[31m%s\x1b[0m", alertMessage+"NOT PASSED!");
     }
 }
 
 async function clearFields(){
-    await driver.findElement(By.id('dayInput'));
-    await driver.findElement(By.id('dayInput')).clear();
-    await driver.findElement(By.id('monthInput')).clear();
-    await driver.findElement(By.id('yearInput')).clear();
+    await driver.findElement(By.xpath("//button[text()='Clear']")).click();
 }
 const expectedMessage = {
     validDate: "is a correct date time!",
