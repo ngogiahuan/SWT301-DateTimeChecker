@@ -97,7 +97,7 @@ async function test() {
 
     //Test case 5: Input Data type ("abc", "def", "ghi")
     const alertMessage5 = await checkDateTime("abc", "def", "ghi");
-    printMessage(alertMessage5, expectedMessage.invalidInput);
+    printMessage(alertMessage5, expectedMessage.invalidInput, "");
     await clearFields();
 
     //Test case 6: Day is out of Range (0/6/2003)
