@@ -4,6 +4,9 @@ const waitButtonTime = 0;
 const waitInputTime = 0;
 const waitAlertTime = 0;
 
+let total = 0;
+let passed = 0;
+
 const driver = new Builder().forBrowser("chrome").build();
 
 // Navigate to url
@@ -46,16 +49,18 @@ async function printMessage(alertMessage, expectedMessage, date) {
   if (alertMessage.includes(expectedMessage)) {
     console.log();
     console.log("\x1b[34m%s\x1b[0m", "Test case " + count++ + ":");
-    console.log("\x1b[32m%s\x1b[0m", "Expected output"+ ": " + date+" "+expectedMessage);
-    console.log("\x1b[32m%s\x1b[0m", "Actual output"+ ": " + alertMessage);
+    console.log("\x1b[32m%s\x1b[0m", "Expected output" + ": " + date + " " + expectedMessage);
+    console.log("\x1b[32m%s\x1b[0m", "Actual output" + ": " + alertMessage);
     console.log("\x1b[32m%s\x1b[0m", "PASSED!");
+    passed++;
   } else {
     console.log();
     console.log("\x1b[34m%s\x1b[0m", "Test case " + count++ + ":");
-    console.log("\x1b[31m%s\x1b[0m", "Expected output"+ ": " +date+" "+ expectedMessage);
-    console.log("\x1b[31m%s\x1b[0m", "Actual output"+ ": " + alertMessage);
+    console.log("\x1b[31m%s\x1b[0m", "Expected output" + ": " + date + " " + expectedMessage);
+    console.log("\x1b[31m%s\x1b[0m", "Actual output" + ": " + alertMessage);
     console.log("\x1b[31m%s\x1b[0m", "NOT PASSED!");
   }
+  total++;
 }
 
 // Clear fields
@@ -124,6 +129,14 @@ async function test() {
     const alertMessage10 = await checkDateTime(30, 4, 2003);
     printMessage(alertMessage10, expectedMessage.validDate, "30/4/2003");
     await clearFields();
+
+    //Test case 11: Month has 28 days (28/2/2003)
+    const alertMessage11 = await checkDateTime(28, 2, 2003);
+    printMessage(alertMessage11, expectedMessage.validDate, "28/2/2003");
+    await clearFields();
+
+    console.log();
+    console.log("\x1b[34m%s\x1b[0m", passed + "/" + total + " test cases passed");
 
   } catch (error) {
     console.log(error);
