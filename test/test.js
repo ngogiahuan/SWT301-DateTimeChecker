@@ -1,8 +1,8 @@
 const { Builder, By } = require("selenium-webdriver");
 
-const waitButtonTime = 0;
-const waitInputTime = 0;
-const waitAlertTime = 0;
+const waitButtonTime = 300;
+const waitInputTime = 100;
+const waitAlertTime = 500;
 
 let total = 0;
 let passed = 0;
