@@ -11,7 +11,7 @@ const driver = new Builder().forBrowser("chrome").build();
 
 // Navigate to url
 async function navigateToUrl() {
-  await driver.get("http://127.0.0.1:5500/");
+  await driver.get("https://swt-301-date-time-checker.vercel.app/");
 }
 
 // Check date time
@@ -49,14 +49,20 @@ async function printMessage(alertMessage, expectedMessage, date) {
   if (alertMessage.includes(expectedMessage)) {
     console.log();
     console.log("\x1b[34m%s\x1b[0m", "Test case " + count++ + ":");
-    console.log("\x1b[32m%s\x1b[0m", "Expected output" + ": " + date + " " + expectedMessage);
+    console.log(
+      "\x1b[32m%s\x1b[0m",
+      "Expected output" + ": " + date + " " + expectedMessage
+    );
     console.log("\x1b[32m%s\x1b[0m", "Actual output" + ": " + alertMessage);
     console.log("\x1b[32m%s\x1b[0m", "PASSED!");
     passed++;
   } else {
     console.log();
     console.log("\x1b[34m%s\x1b[0m", "Test case " + count++ + ":");
-    console.log("\x1b[31m%s\x1b[0m", "Expected output" + ": " + date + " " + expectedMessage);
+    console.log(
+      "\x1b[31m%s\x1b[0m",
+      "Expected output" + ": " + date + " " + expectedMessage
+    );
     console.log("\x1b[31m%s\x1b[0m", "Actual output" + ": " + alertMessage);
     console.log("\x1b[31m%s\x1b[0m", "NOT PASSED!");
   }
@@ -136,8 +142,10 @@ async function test() {
     await clearFields();
 
     console.log();
-    console.log("\x1b[34m%s\x1b[0m", passed + "/" + total + " test cases passed");
-
+    console.log(
+      "\x1b[34m%s\x1b[0m",
+      passed + "/" + total + " test cases passed"
+    );
   } catch (error) {
     console.log(error);
   } finally {
